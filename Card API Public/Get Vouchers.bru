@@ -1,0 +1,15 @@
+meta {
+  name: Get Vouchers
+  type: http
+  seq: 2
+}
+
+get {
+  url: https://{{hostname}}/api/vouchers
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{access_token}}
+}

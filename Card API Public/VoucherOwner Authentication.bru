@@ -1,0 +1,26 @@
+meta {
+  name: Authentication
+  type: http
+  seq: 1
+}
+
+post {
+  url: https://{{hostname}}/api/authorizations
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "identifier": "{{vo_email}}",
+    "password": "{{vo_password}}",
+    "accessors": [
+      "voucher_owner"
+    ]
+  }
+}
+
+vars:post-response {
+  access_token: res.body.data.access_token
+  refresh_token: res.body.data.refresh_token
+}
